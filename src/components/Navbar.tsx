@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
           <Link to="/" className="flex-shrink-0 font-bold text-2xl text-golden-400">
-            SHUgar
+            SHuGar
           </Link>
           
           {/* Desktop Menu */}
