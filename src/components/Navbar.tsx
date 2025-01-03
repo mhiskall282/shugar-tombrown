@@ -1,26 +1,46 @@
 import React from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Menu, X, Coffee } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+
+const navItems = [
+  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
+  { path: '/products', label: 'Products' },
+  { path: '/contact', label: 'Contact' },
+  { path: '/delivery', label: 'Delivery' },
+  { path: '/booking', label: 'Book Now' }
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-chocolate-900 text-milk-50">
+    <nav className="bg-chocolate-900 text-milk-50 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex-shrink-0 font-bold text-2xl">
-            SHUgar
+          <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
+            <Coffee className="h-8 w-8 text-golden-400" />
+            <span className="font-bold text-2xl">SHUgar</span>
           </Link>
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <Link to="/" className="hover:text-golden-400 px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-              <Link to="/about" className="hover:text-golden-400 px-3 py-2 rounded-md text-sm font-medium">About</Link>
-              <Link to="/products" className="hover:text-golden-400 px-3 py-2 rounded-md text-sm font-medium">Products</Link>
-              <Link to="/contact" className="hover:text-golden-400 px-3 py-2 rounded-md text-sm font-medium">Contact</Link>
-              <Link to="/delivery" className="hover:text-golden-400 px-3 py-2 rounded-md text-sm font-medium">Delivery</Link>
-              <Link to="/booking" className="hover:text-golden-400 px-3 py-2 rounded-md text-sm font-medium">Book Now</Link>
+              {navItems.map(({ path, label }) => (
+                <Link
+                  key={path}
+                  to={path}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    isActive(path)
+                      ? 'bg-chocolate-800 text-golden-400'
+                      : 'hover:text-golden-400'
+                  }`}
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
           </div>
           
@@ -38,15 +58,24 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link to="/" className="hover:text-golden-400 block px-3 py-2 rounded-md text-base font-medium">Home</Link>
-            <Link to="/about" className="hover:text-golden-400 block px-3 py-2 rounded-md text-base font-medium">About</Link>
-            <Link to="/products" className="hover:text-golden-400 block px-3 py-2 rounded-md text-base font-medium">Products</Link>
-            <Link to="/contact" className="hover:text-golden-400 block px-3 py-2 rounded-md text-base font-medium">Contact</Link>
-            <Link to="/delivery" className="hover:text-golden-400 block px-3 py-2 rounded-md text-base font-medium">Delivery</Link>
-            <Link to="/booking" className="hover:text-golden-400 block px-3 py-2 rounded-md text-base font-medium">Book Now</Link>
+            {navItems.map(({ path, label }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive(path)
+                    ? 'bg-chocolate-800 text-golden-400'
+                    : 'hover:text-golden-400'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
         </div>
       )}
     </nav>
   );
 }
+export default Navbar;
