@@ -11,7 +11,7 @@ export default function Hero() {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-milk-50 sm:text-5xl md:text-6xl">
                 <span className="block">Start Your Day with</span>
-                <span className="block text-golden-400">SHUgar's Breakfast!</span>
+                <span className="block text-golden-400">SHuGar's Breakfast!</span>
               </h1>
               <p className="mt-3 text-base text-milk-200 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 Discover our delicious range of breakfast options, from comforting Rice Porridge to energizing Milo drinks.
