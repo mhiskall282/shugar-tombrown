@@ -65,4 +65,3 @@ export default function Products() {
     </div>
   );
 }
-export default Products;
