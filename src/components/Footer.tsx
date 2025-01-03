@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
               <Coffee className="h-6 w-6 text-golden-400" />
-              <span className="text-xl font-bold">SHUgar</span>
+              <span className="text-xl font-bold">SHuGar</span>
             </Link>
             <p className="text-milk-200">
               Bringing warmth and comfort to your breakfast table, one meal at a time.
@@ -56,7 +56,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-chocolate-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-milk-200">
-              © {new Date().getFullYear()} SHUgar. All rights reserved.
+              © {new Date().getFullYear()} SHuGar. All rights reserved.
             </p>
             <div className="flex items-center space-x-2 text-milk-200">
               <span>Developed with ❤️ by</span>
@@ -75,3 +75,4 @@ export default function Footer() {
     </footer>
   );
 }
+export default Footer;
