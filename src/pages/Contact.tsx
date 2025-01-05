@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '../components/Button';
+iimport { Button } from '../components/ui/button';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
